@@ -31,13 +31,14 @@ $(document).on("click", ".searchBtn", function () {
     var ids = "car" + carnum;
     $(".gifHolder").append(`<div id="${ids}" class="carousel carousel-slider"></div>`)
     for (i = 0; i < 10; i++) {
-      $(`#${ids}`).append(`<a class="carousel-item"><img class="gifs" src='${response.data[i].images.original_still.url}' alt="${response.data[i].images.original.url}"></a>`);
+      $(`#${ids}`).append(`<a class="carousel-item tooltipped" data-position="top" data-tooltip='Rated: ${response.data[i].rating}'><img class="gifs" src='${response.data[i].images.original_still.url}' alt="${response.data[i].images.original.url}"></a>`);
     };
     carnum++
 
     setTimeout(function() {
     $('.carousel').carousel();
     $('.carousel-slider').slider({ full_width: true });
+    $('.tooltipped').tooltip();
     }, 500)
   }).catch() 
   
